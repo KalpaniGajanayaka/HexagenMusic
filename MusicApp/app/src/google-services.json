@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "864087681189",
+    "firebase_url": "https://hexagon-music-4185b-default-rtdb.firebaseio.com",
+    "project_id": "hexagon-music-4185b",
+    "storage_bucket": "hexagon-music-4185b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864087681189:android:f204444321acb8b2b5c54c",
+        "android_client_info": {
+          "package_name": "com.example.hexagonmusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864087681189-9a87cnd4r77ri9id2o94fr96gf13buvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB4Y8VIohzEaOsC5-XLD9pwMi6cI27UvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864087681189-9a87cnd4r77ri9id2o94fr96gf13buvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
