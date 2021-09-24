@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Feedback">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:background="@android:drawable/ic_menu_sort_by_size"
+            android:text="navi"
+            android:textColor="#0000DDFF"
+            app:backgroundTint="@android:color/holo_blue_bright"
+            app:backgroundTintMode="add" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_bright"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingLeft="80dp"
+            android:text="@string/Feedback"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="373dp"
+        android:layout_height="258dp"
+        android:layout_margin="20dp"
+        android:background="#3C06CFEA"
+        android:ems="10"
+        android:gravity="clip_horizontal"
+        android:hint="@string/EnterHereFeedback"
+        android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="#9E9E9E"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="374dp"
+        android:layout_height="69dp"
+        android:layout_margin="20dp"
+        android:text="@string/Done"
+        android:textSize="16sp"
+        app:backgroundTint="#192B8F" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+</LinearLayout>
