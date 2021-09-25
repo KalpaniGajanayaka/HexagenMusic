@@ -5,6 +5,10 @@ plugins {
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -33,7 +37,7 @@ android {
 
 dependencies {
 
-    implementation 'lk.payhere:androidsdk:2.0.33'  // PayHere SDK
+   // implementation 'lk.payhere:androidsdk:2.0.33'  // PayHere SDK
     implementation 'com.google.code.gson:gson:2.8.0' // ignore if you have already added
 
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
