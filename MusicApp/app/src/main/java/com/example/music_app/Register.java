@@ -14,6 +14,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,11 +29,11 @@ import java.util.Map;
 public class Register extends AppCompatActivity {
     public static final String TAG = "TAG";
     EditText Rusername, Rphonenumber, Remail, Rpassword;
-    Button Rdonebtn;
-    TextView RLoginBtn;
-    //FirebaseAuth fAuth;
+    Button Rdonebtn, RLoginBtn;
+//    TextView RLoginBtn;
+    FirebaseAuth fAuth;
     ProgressBar progressBar4;
-    //FirebaseFirestore fStore;
+    FirebaseFirestore fStore;
     String userID;
 
     @Override
@@ -40,15 +48,15 @@ public class Register extends AppCompatActivity {
         Rdonebtn = findViewById(R.id.Rdonebtn);
         RLoginBtn = findViewById(R.id.RLoginBtn);
 
-  //      fAuth = FirebaseAuth.getInstance();
-//        fStore = FirebaseFirestore.getInstance();
-//        progressBar4 = findViewById(R.id.progressBar);
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        progressBar4 = findViewById(R.id.progressBar);
 
 
-//        if(fAuth.getCurrentUser() != null){
-//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//            finish();
-//        }
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            finish();
+        }
 
         Rdonebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,52 +81,54 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                progressBar4.setVisibility(View.VISIBLE);
+              //  progressBar4.setVisibility(View.VISIBLE);
 
 
                 // register the user in firebase
 
-//                fAuth.createUserWithEmailAndPassword(Remail,Rpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if(task.isSuccessful()){
-//                            Toast.makeText(Register.this, "User created", Toast.LENGTH_SHORT).show();
-//
-//                            userID = fAuth.getCurrentUser().getUid();
-//                            DocumentReference documentReference = fStore.collection("users").document(userID);
-//                            Map<String,Object> user =new HashMap<>();
-//                            user.put("name", Rusername);
-//                            user.put("email",Remail);
-//                            user.put("phoneNumber",Rphonenumber);
-//
-//                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    Log.d(TAG, "onSuccess:user profile is created for "+ userID);
-//                                }
-//                            });
-//                            startActivity(new Intent(getApplicationContext(),Dashboard.class));
-//                        }else {
-//                            Toast.makeText(Register.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                            progressBar.setVisibility(View.GONE);
-//                        }
-//
-//                    });
-//                }
-//
-//            });
-
-                RLoginBtn.setOnClickListener(new View.OnClickListener() {
+                fAuth.createUserWithEmailAndPassword(Remail.getText().toString(),Rpassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onClick(View v) {
-                        String s = "username "+Rusername.getText().toString()+" mobile "+Rphonenumber.getText().toString()+" email "+Remail.getText().toString();
-                        Toast t = Toast.makeText(Register.this,s,Toast.LENGTH_LONG);
-                        t.show();
+                    public void onComplete(@NonNull Task<AuthResult> task){
+                        if(task.isSuccessful()){
+                            Toast.makeText(Register.this, "User created", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(getApplicationContext(), Login.class));
-                    }
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String,Object> user =new HashMap<>();
+                            user.put("name", Rusername);
+                            user.put("email",Remail);
+                            user.put("phoneNumber",Rphonenumber);
+
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "onSuccess:user profile is created for "+ userID);
+                                }
+                            });
+                            startActivity(new Intent(getApplicationContext(),Login.class));
+                        }else {
+                            Toast.makeText(Register.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                           // progressBar4.setVisibility(View.GONE);
+                        }
+
+                    };
                 });
 
+
+
+
+
+            }
+        });
+
+        RLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = "username "+Rusername.getText().toString()+" mobile "+Rphonenumber.getText().toString()+" email "+Remail.getText().toString();
+                Toast t = Toast.makeText(Register.this,s,Toast.LENGTH_LONG);
+                t.show();
+
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
 
