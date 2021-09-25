@@ -17,6 +17,9 @@
         <activity
             android:name=".home_screen"
             android:exported="true" />
+        <activity android:name=".Details"></activity>
+        <activity android:name=".View_Item" />
+        <activity android:name=".Item_Update" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
