@@ -3,9 +3,18 @@ package com.example.music_app.model;
     public class MusicModel{
 
         private int itemId;
+        private String collectionID;
         private String itemName;
         private String imageValue;
         private String itemDescirption;
+
+        public String getCollectionID() {
+            return collectionID;
+        }
+
+        public void setCollectionID(String collectionID) {
+            this.collectionID = collectionID;
+        }
 
         public int getItemId() {
             return itemId;
