@@ -1,3 +1,31 @@
 <resources>
-    <string name="app_name">music_app</string>
+    <string name="app_name">Hexagon Music</string>
+    <string name="title_activity_home_screens">home_screens</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Profile</string>
+    <string name="menu_slideshow">FeedBack</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="Email_Adders">Email Adders</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="HexagonMusic">Hexagon Music</string>
+    <string name="Feedback">Feedback</string>
+    <string name="EnterHereFeedback">Enter Here Feedback ...</string>
+    <string name="Done">Done</string>
+    <string name="Profile">Profile</string>
+    <string name="logout">logout</string>
+    <string name="Delete">Delete</string>
+    <string name="Editprofile">Edit Profile</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="UserName">User Name</string>
+    <string name="Registerhere">Register Here</string>
+    <string name="Loginhere">Login Here</string>
 </resources>

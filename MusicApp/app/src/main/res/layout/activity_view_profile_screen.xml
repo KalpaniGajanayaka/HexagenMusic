@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view_profile_screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="146dp">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/Profile"
+            android:textSize="29sp" />
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="158dp"
+            android:layout_height="158dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            tools:srcCompat="@drawable/prof_pic" />
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:hint="Kalpi Gajanayaka"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:hint="kalpi@gmai.com"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/profilePhone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:hint="+94711231231"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:hint="No.12, Main St, Rathanapura"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="@string/Delete"
+                app:backgroundTint="@android:color/holo_red_light" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="83dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="@string/Editprofile"
+                app:backgroundTint="#192B8F" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

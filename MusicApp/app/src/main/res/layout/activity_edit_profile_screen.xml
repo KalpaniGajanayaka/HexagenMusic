@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".edit_profile_screen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="189dp">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/Editprofile"
+            android:textSize="29sp" />
+
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="158dp"
+            android:layout_height="158dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="30dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="313dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+
+                android:id="@+id/epUsername"
+                android:layout_width="386dp"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:background="?attr/colorButtonNormal"
+                android:ems="10"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="@string/UserName"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="@android:color/darker_gray"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/epPhone"
+                android:layout_width="386dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="?attr/colorButtonNormal"
+                android:ems="10"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="@string/PhoneNumber"
+                android:inputType="phone"
+                android:paddingStart="20dp"
+                android:textColorHint="@android:color/darker_gray"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/epEmail"
+                android:layout_width="386dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="?attr/colorButtonNormal"
+                android:ems="10"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="@string/Email_Adders"
+                android:inputType="textPostalAddress"
+                android:paddingStart="20dp"
+                android:textColorHint="@android:color/darker_gray"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/epPassword"
+                android:layout_width="386dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:background="?attr/colorButtonNormal"
+                android:ems="10"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="@string/Password"
+                android:inputType="textPassword"
+                android:paddingStart="20dp"
+                android:textColorHint="@android:color/darker_gray"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/epDonebtn"
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/Done"
+            app:backgroundTint="#192B8F" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="41dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
