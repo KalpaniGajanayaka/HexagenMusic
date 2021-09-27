@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".oder_history">
+    tools:context=".ItemList">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,29 +17,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#3261EC"
-            android:orientation="vertical"
-            android:rotationX="0"
-            android:rotationY="0">
+            android:layout_height="58dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/textView7"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
                 android:fontFamily="serif-monospace"
                 android:gravity="center"
-                android:text="Order History"
-                android:textSize="30dp" />
+                android:text="ITEM LIST"
+                android:textColor="@color/teal_700"
+                android:textSize="34sp"
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/oderHistoryList"
+            android:id="@+id/itemList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp" />
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

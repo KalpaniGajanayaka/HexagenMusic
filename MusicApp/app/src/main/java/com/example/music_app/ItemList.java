@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.music_app.Adapter.oderAdapter;
-import com.example.music_app.model.OderModel;
-import com.example.music_app.model.cartModel;
+import com.example.music_app.Adapter.itemListAdspter;
+import com.example.music_app.Adapter.musicIstrumentAdapter;
+import com.example.music_app.model.MusicModel;
+import com.example.music_app.model.itemModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,30 +20,35 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class oder_history extends AppCompatActivity {
+public class ItemList extends AppCompatActivity {
 
     RecyclerView lists;
-    ArrayList<OderModel> orderlists;
+    ArrayList<itemModel> musicList;
+
     private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oder_history);
+        setContentView(R.layout.activity_item_list);
 
-        orderlists = new ArrayList<OderModel>();
-        lists = findViewById(R.id.oderHistoryList);
+        musicList =  new ArrayList<itemModel>();
+        lists = findViewById(R.id.musicListView);
+
         init();
+        getMusicDataFromFireStore();
 
-        getOderInfoMainFromFribase();
     }
 
     public void init(){
         db = FirebaseFirestore.getInstance();
     }
 
-    private void getOderInfoMainFromFribase() {
-        db.collection("orders")
+    public ArrayList<MusicModel> getMusicDataFromFireStore(){
+
+        System.out.println("----calling method");
+
+        db.collection("item")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -51,21 +57,20 @@ public class oder_history extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 // Log.d(TAG, document.getId() + " => " + document.getData());
                                 System.out.println(document.getId() +"+++++ DocumentSnapshot data: " + document.getData());
-                                OderModel model = new OderModel();
+                                itemModel model = new itemModel();
 
-                                //String ids = document.get("itemId").toString();
+                                String ids = document.get("itemId").toString();
 
                                 model.setCollectionID(document.getId());
-                                model.setDates(document.get("date").toString());
-                                model.setItemName(document.get("itemName").toString());
-                                model.setImageValue(document.get("itemImage").toString());
+                                model.setItemId(Integer.parseInt(ids));
+                                model.setImageValue((String) document.get("itemPic"));
+                                model.setItemDescirption((String) document.get("description"));
+                                model.setItemName((String) document.get("itemName"));
 
+                                musicList.add(model);
 
-
-                                orderlists.add(model);
-
-                                oderAdapter adpter = new oderAdapter(orderlists);
-                                lists.setLayoutManager(new LinearLayoutManager(oder_history.this));
+                                itemListAdspter adpter = new itemListAdspter(musicList);
+                                lists.setLayoutManager(new LinearLayoutManager(ItemList.this));
                                 lists.setItemAnimator(new DefaultItemAnimator());
                                 lists.setAdapter(adpter);
                             }
@@ -75,5 +80,8 @@ public class oder_history extends AppCompatActivity {
                         }
                     }
                 });
+
+
+        return null;
     }
 }

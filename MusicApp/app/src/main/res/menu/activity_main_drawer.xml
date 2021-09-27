@@ -12,36 +12,88 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
-        <item
-        android:id="@+id/nav_slideshow"
-        android:icon="@drawable/ic_menu_slideshow"
-        android:title="@string/menu_slideshow" />
-
-        <item
-            android:id="@+id/nav_cart"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="View My Cart" />
-
-        <item
-            android:id="@+id/nav_itemreg"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Item Register" />
-
-        <item
-            android:id="@+id/nav_oderhistory"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="View My Oders" />
-
-        <item
-            android:id="@+id/nav_devliery"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Deliverys" />
-
-        <item
-            android:id="@+id/nav_item_rent"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Item Rent" />
-
 
     </group>
+
+    <item android:title="Items">
+
+        <menu>
+            <group android:title="Items">
+
+                <item
+                    android:id="@+id/nav_itemreg"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Item Register" />
+
+                <item
+                    android:id="@+id/nav_item_rent"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Item Rent" />
+
+                <item
+                    android:id="@+id/nav_item_list"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Item List" />
+
+            </group>
+        </menu>
+
+    </item>
+
+    <item android:title="Cart And Oders">
+
+        <menu>
+            <group android:title="Cart and Oders">
+
+                <item
+                    android:id="@+id/nav_cart"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="View My Cart" />
+
+                <item
+                    android:id="@+id/nav_oderhistory"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="View My Oders" />
+
+                <item
+                    android:id="@+id/nav_devliery"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Deliverys" />
+
+            </group>
+        </menu>
+
+    </item>
+
+    <item android:title="Communication">
+
+        <menu>
+            <group android:title="Communication">
+
+                <item
+                    android:id="@+id/nav_slideshow"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="@string/menu_slideshow" />
+
+
+            </group>
+        </menu>
+
+    </item>
+
+    <item android:title="Setting">
+
+        <menu>
+            <group android:title="Communication">
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Logout" />
+
+
+            </group>
+        </menu>
+
+    </item>
 </menu>
