@@ -71,37 +71,51 @@ public class home_screen extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.nav_home:
-                        Intent ix = new Intent(home_screen.this,rent_details.class); // item reg screen
-                        startActivity(ix);
+                        break;
                        // Toast.makeText(home_screen.this, "My Account",Toast.LENGTH_SHORT).show();break;
                     case R.id.nav_gallery:
                         Intent i = new Intent(home_screen.this,view_profile_screen.class);
                         startActivity(i);
+                        break;
                     case R.id.nav_slideshow:
                         Intent ii = new Intent(home_screen.this,feedback_screen.class);
                         startActivity(ii);
+                        break;
                     case R.id.nav_cart:
                         Intent iii = new Intent(home_screen.this,cart_screen.class);
                         startActivity(iii);
+                        break;
                     case R.id.nav_itemreg:
-                        Intent iv = new Intent(home_screen.this,item_register.class); // item reg screen
+                        Intent iv = new Intent(home_screen.this,AddNewItem.class); // item reg screen
                         startActivity(iv);
+                        break;
                     case R.id.nav_oderhistory:
                         Intent v = new Intent(home_screen.this,oder_history.class);
                         startActivity(v); //nav_item_rent
+                        break;
                     case R.id.nav_item_rent:
                         Intent vi = new Intent(home_screen.this,rent_details.class);
                         startActivity(vi);
+                        break;
+                    case R.id.nav_devliery :
+                        Intent vii = new Intent(home_screen.this,delivery_screen.class);
+                        startActivity(vii);
+                        break;
+                    case  R.id.nav_item_list :
+                        Intent viii = new Intent(home_screen.this,ItemList.class);
+                        startActivity(viii);
+                        break;
                     default:
                         return true;
                 }
 
 
-                //return true;
+                return true;
 
             }
         });
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,33 +126,15 @@ public class home_screen extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // initilize firebase instance
     public void init(){
         db = FirebaseFirestore.getInstance();
     }
 
+    //get item list data from item collection
     public ArrayList<MusicModel> getMusicDataFromFireStore(){
 
         System.out.println("----calling method");
-
-//        DocumentReference docRef = db.collection("item").document("item001");
-//
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    System.out.println("------- documet "+document.toString());
-//                    if (document.exists()) {
-//                        System.out.println(" +++++ DocumentSnapshot data: " + document.getData());
-//                    } else {
-//                        System.out.println("******** No such document");
-//                    }
-//                } else {
-//                    System.out.println("----*****-----get failed with "+ task.getException());
-//                }
-//
-//            }
-//        });
 
         db.collection("item")
                 .get()

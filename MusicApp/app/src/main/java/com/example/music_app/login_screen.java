@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -39,6 +40,16 @@ public class login_screen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
 
         init();
+
+        int status = retriveLogingStatus();
+
+        if(status == 1) {
+            //redirect into home
+            Intent i =  new Intent(login_screen.this, home_screen.class);
+            startActivity(i);
+        }else {
+            // continue login
+        }
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -99,6 +110,29 @@ public class login_screen extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
     }
 
+    public void StroreDataLocal(String userid){
+        SharedPreferences sp=getSharedPreferences("Login", MODE_PRIVATE);
+        SharedPreferences.Editor Ed=sp.edit();
+        Ed.putString("login_st","1" );
+        Ed.putString("user_id",userid);
+        Ed.commit();
+    }
+
+    public int retriveLogingStatus(){
+        SharedPreferences sp1=this.getSharedPreferences("Login", MODE_PRIVATE);
+
+        String unm=sp1.getString("login_st", null);
+        String pass = sp1.getString("user_id", null);
+
+        if(unm != null && Integer.parseInt(unm) == 1){
+            //alredy log
+            return 1;
+        }else {
+            //not log
+            return 0;
+        }
+    }
+
     public void checkAuthInFirebase(String username, String password){
         db.collection("user")
                 .get()
@@ -115,7 +149,9 @@ public class login_screen extends AppCompatActivity {
 
                                 String pass = document.get("password").toString();
 
+                                String userids = document.get("userid").toString();
                                 if(username.equals(uname) && password.equals(pass)){
+                                    StroreDataLocal(userids);
                                     Toast.makeText(login_screen.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(),home_screen.class));
                                 }else {
